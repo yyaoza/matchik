@@ -1,1 +1,1 @@
-web: gunicorn matchik.wsgi
+web: gunicorn matchik:app
