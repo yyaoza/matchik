@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block cb %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <div class="form-group">
+                  <h5>Click here to update Crunchbase data</h5>
+                  {{ form.update(class="btn btn-outline-info") }}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock cb %}

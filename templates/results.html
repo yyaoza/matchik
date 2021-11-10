@@ -1,0 +1,51 @@
+{% extends "search.html" %}
+{% block results %}
+<div class="content-sectionss">
+    <h4>Search Results</h4>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+          <th>Company</th>
+          <th>Founding year</th>
+          <th>HQ Location</th>
+          <th>Type</th>
+          <th>Total Funding</th>
+          <th>Founder's School</th>
+          <th>Founder's Job 1</th>
+          <th>Founder's Job 2</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if len == 0 %}
+        <tr>
+          <td colspan="9"><center>No results in daily report</center></td>
+        </tr>
+    {% else %}
+
+        <tr>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+        </tr>
+        <tr>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+            <td>fsfwe</td>
+        </tr>
+
+    {% endif %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock results %}
