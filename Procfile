@@ -1,1 +1,1 @@
-web: gunicorn matchik:app
+web: gunicorn main:app
