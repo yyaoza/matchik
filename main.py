@@ -1,5 +1,4 @@
-import document as document
-from flask import request, render_template, flash, Markup, jsonify, Flask
+from flask import render_template, flash, Flask
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import InputRequired
