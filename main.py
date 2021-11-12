@@ -12,8 +12,9 @@ class SearchForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
-class CBExecute(FlaskForm):
+class PullData(FlaskForm):
     update = SubmitField('Update')
+    download = SubmitField('Download')
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -33,16 +34,16 @@ def start():
 
 @app.route('/cb', methods=['GET', 'POST'])
 def cb():
-    update = CBExecute()
+    form = PullData()
 
-    return render_template('cb.html', form=update)
+    return render_template('cb.html', form=form)
 
 
 @app.route('/li', methods=['GET', 'POST'])
 def li():
-    update = CBExecute()
+    form = PullData()
 
-    return render_template('li.html', form=update)
+    return render_template('li.html', form=form)
 
 
 if __name__ == '__main__':

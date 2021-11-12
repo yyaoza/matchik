@@ -2,13 +2,14 @@
 {% block li %}
     <div class="content-section">
         <form method="POST" action="">
-            {{ form.hidden_tag() }}
-            <fieldset class="form-group">
                 <div class="form-group">
-                  <h5>Click here to update LinkedIn data</h5>
-                  {{ form.update(class="btn btn-outline-info") }}
+                    <h5>Click here to update LinkedIn data</h5>
+                    {{ form.update(class="btn btn-outline-info") }}
                 </div>
-            </fieldset>
+                <div class="form-group">
+                    <h5>Click here to download LinkedIn data</h5>
+                    {{ form.download(class="btn btn-outline-info") }}
+                </div>
         </form>
     </div>
 {% endblock li %}

@@ -41,6 +41,8 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 3px;
   margin-bottom: 20px;
   color: white;
+  min-height: 100px;
+  overflow: hidden;
 }
 
 .article-title {
@@ -105,6 +107,8 @@ a.article-title:hover {
 .form-group {
   font-size: 0.5rem;
   margin-bottom: 0.5rem;
+  float: left;
+  width: 50%;
 }
 
 .form-control-lg {
