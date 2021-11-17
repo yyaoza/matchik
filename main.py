@@ -2,6 +2,41 @@ from flask import render_template, flash, Flask
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import InputRequired
+import csv
+import json
+
+print('Reload CSV to JSON?')
+yesOrNo = input()
+
+orgCSVFilePath = 'organizations.csv'
+jsonFilePath = 'json_org.json'
+
+# read csv
+org_data = {}
+if yesOrNo == 'y':
+    print('loading CSV to JSON...')
+    with open(orgCSVFilePath) as CSVFile:
+        CSVReader = csv.DictReader(CSVFile)
+        for rows in CSVReader:
+            walt = rows['name']
+            org_data[walt] = rows
+
+    with open(jsonFilePath, 'w') as jsonFile:
+        jsonFile.write(json.dumps(org_data, indent=4))
+
+    print('done')
+
+else:
+    print('loading JSON to dict...')
+    with open(jsonFilePath) as jsonFile:
+        org_data = json.load(jsonFile)
+
+while 1:
+    print('find company')
+    search_text = input()
+    if search_text in org_data:
+        print(org_data[search_text])
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'shhh its a secret'
