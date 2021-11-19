@@ -45,6 +45,7 @@ allOrg_data = {k.lower(): v for k, v in allOrg_data.items()}
 #     if allOrg_data[rows]['permalink'] == '#N/A':
 #         print(allOrg_data[rows]['name'])
 
+
 while 1:
     print('Search an org off Crunchbase:')
     orgName = input()
