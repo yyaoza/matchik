@@ -14,7 +14,7 @@ accOrg_CSVFilePath = 'accCompanies.csv'
 # allOrg_JsonFilePath = 'json_accOrg.json'
 
 # read csv to JSON file
-org_data = {}
+# org_data = {}
 allOrg_data = {}
 # print('Reload organizations.csv to JSON?')
 # yesOrNo = input()
