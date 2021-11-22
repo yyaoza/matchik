@@ -1,0 +1,15 @@
+/* Useful css to scss converter
+* http://sebastianpontow.de/css2compass/
+*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: relative;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
