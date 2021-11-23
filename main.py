@@ -4,6 +4,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import InputRequired
 import csv
 import requests
+import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'shhh its a secret'
@@ -48,15 +49,19 @@ def start():
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
-    URL = ['https://api.crunchbase.com/api/v4/entities/organizations/',
-           allOrg_data[request.args.get('org')]['permalink'],
-               '?card_ids=founders,raised_funding_rounds',
-               '&field_ids=founded_on',
-               '&user_key=c4564ba5932862bc86b28ae5e4397cf7']
-    URL = ''.join(URL)
-    print(URL)
-    r = requests.get(url=URL)
-    return render_template('result.html')
+    url = ['https://api.crunchbase.com/api/v4/entities/organizations/',
+           allOrg_data[request.args.get('org').lower()]['permalink'],
+           '?card_ids=founders,raised_funding_rounds,headquarters_address',
+           '&field_ids=founded_on,categories,location_identifiers',
+           '&user_key=c4564ba5932862bc86b28ae5e4397cf7']
+    url = ''.join(url)
+    result_org = requests.get(url=url)
+    result_org_json = json.loads(result_org.text)
+
+    return render_template('result.html', org_name=request.args.get('org'), resultOrg=result_org_json,
+                           categoryLen=len(result_org_json['properties']['categories']),
+                           locationLen=len(result_org_json['properties']['location_identifiers']),
+                           fundingRoundLen=len(result_org_json['cards']['raised_funding_rounds'])   )
 
 
 @app.route('/cb', methods=['GET', 'POST'])

@@ -9,10 +9,11 @@
           <th>Founding year</th>
           <th>HQ Location</th>
           <th>Type</th>
-          <th>Total Funding</th>
-          <th>Founder's School</th>
-          <th>Founder's Job 1</th>
-          <th>Founder's Job 2</th>
+          {% for i in range(0, fundingRoundLen) %}
+          <th>Funding Round {{ i }} Date</th>
+          <th>Funding Round {{ i }} Amount</th>
+          {% endfor %}
+
     </thead>
     <tbody>
     {% if len == 0 %}
@@ -22,14 +23,19 @@
     {% else %}
 
         <tr>
-            <td>cdscs</td>
-            <td>fsfwe</td>
-            <td>fsfwe</td>
-            <td>fsfwe</td>
-            <td>fsfwe</td>
-            <td>fsfwe</td>
-            <td>fsfwe</td>
-            <td>fsfwe</td>
+            <td>{{ org_name }}</td>
+            <td>{{ resultOrg.properties.founded_on.value }}</td>
+            <td>{% for i in range(0, locationLen) %}
+                    {{ resultOrg.properties.location_identifiers[i].value }},<br>
+                {% endfor %}
+            </td>
+            <td>{% for i in range(0, categoryLen) %}
+                    {{ resultOrg.properties.categories[i].value }},<br>
+                {% endfor %}</td>
+            {% for i in range(0, fundingRoundLen) %}
+            <td>{{ resultOrg.cards.raised_funding_rounds[i].announced_on }}</td>
+            <td>{{ resultOrg.cards.raised_funding_rounds[i].funded_organization_funding_total.value_usd }}</td>
+            {% endfor %}
         </tr>
         <tr>
             <td><a href="/">fsfwe</a></td>
