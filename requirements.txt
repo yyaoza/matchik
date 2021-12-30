@@ -4,3 +4,5 @@ WTForms~=3.0.0
 gunicorn==20.0.4
 Flask-WTF==1.0.0
 requests~=2.26.0
+linkedin~=0.1.5
+oauth~=1.0.1
